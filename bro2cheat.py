@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/env python
 #
 # Scrapes bro command examples from http://bropages.org/browse and reformats them for use with the bro-like tool cheat (http://github.com/chrisallenlane/cheat).
 #
