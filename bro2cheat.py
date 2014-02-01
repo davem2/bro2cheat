@@ -1,6 +1,6 @@
 #!/bin/python
 #
-# Scrapes command examples from bropages.org and reformats them for use with the bro-like tool "cheat" (https://github.com/chrisallenlane/cheat).
+# Scrapes bro command examples from http://bropages.org/browse and reformats them for use with the bro-like tool cheat (http://github.com/chrisallenlane/cheat).
 #
 
 from bs4 import BeautifulSoup
@@ -15,7 +15,7 @@ DEFAULT_MIN_UPVOTES = 1;
 DEFAULT_MAX_DOWNVOTES = 0;
 
 # Parse command line
-parser = argparse.ArgumentParser(description='Extracts command examples from bropages.org and reformats them for use with the bro-like tool "cheat" (https://github.com/chrisallenlane/cheat).')
+parser = argparse.ArgumentParser(description='Scrapes bro command examples from http://bropages.org/browse and reformats them for use with the bro-like tool cheat (http://github.com/chrisallenlane/cheat).')
 parser.add_argument("-o", "--outpath", help="Directory to output cheat files (defaults to "+DEFAULT_OUTPUT_DIR+")", default=DEFAULT_OUTPUT_DIR)
 parser.add_argument("-u", "--upvotes", type=int, help="Ignore entries with upvotes less than given value (defaults to "+str(DEFAULT_MIN_UPVOTES)+")", default=DEFAULT_MIN_UPVOTES)
 parser.add_argument("-d", "--downvotes", type=int, help="Ignore entries with downvotes greater than given value (defaults to "+str(DEFAULT_MAX_DOWNVOTES)+")", default=DEFAULT_MAX_DOWNVOTES)
