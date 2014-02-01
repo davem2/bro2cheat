@@ -47,9 +47,9 @@ for command in commands:
 		f.close();
 
 #DEBUG
-		print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-		print(command.string + ' U:' + str(upvotes) + ' D:'+ str(downvotes))
-		print(example)
+#		print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+#		print(command.string + ' U:' + str(upvotes) + ' D:'+ str(downvotes))
+#		print(example)
 		
 print("Total number of bro entries: " + str(totalEntries))
 print("Number of bro entries extracted: " + str(totalEntriesExtracted))
