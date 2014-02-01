@@ -42,7 +42,7 @@ for command in commands:
 		totalEntriesExtracted += 1
 		example = command.find_next("td", class_="msgbody").pre.string
 
-		f = open(args.outpath + command.string, 'a')
+		f = open( os.path.join(args.outpath, command.string), 'a' )
 		print(example+'\n', file=f)
 		f.close();
 
