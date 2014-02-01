@@ -51,6 +51,4 @@ for command in commands:
 #		print(command.string + ' U:' + str(upvotes) + ' D:'+ str(downvotes))
 #		print(example)
 		
-print("Total number of bro entries: " + str(totalEntries))
-print("Number of bro entries extracted: " + str(totalEntriesExtracted))
-
+print("Saved " + str(totalEntriesExtracted) + " of " + str(totalEntries) + " bro command entries to " + args.outpath)
