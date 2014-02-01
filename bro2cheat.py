@@ -29,26 +29,29 @@ if not os.path.exists(args.outpath):
 htmldata = requests.get('http://bropages.org/browse')
 soup = BeautifulSoup(htmldata.text)
 
-# Process each command entry
-totalEntries = 0;
-totalEntriesExtracted = 0;
+# Process each bro command example
 commands = soup.find_all('td', class_='command')
+totalEntriesExtracted = 0;
 for command in commands:
-	totalEntries += 1
 	upvotes = int(command.find_next("span", class_="upvote").get_text())
 	downvotes = int(command.find_next("span", class_="downvote").get_text())
 	
 	if upvotes >= args.upvotes and downvotes <= args.downvotes: 
-		totalEntriesExtracted += 1
+		
+		# Extract bro command example
 		example = command.find_next("td", class_="msgbody").pre.string
 
+		# Append example to cheat file named after command
 		f = open( os.path.join(args.outpath, command.string), 'a' )
 		print(example+'\n', file=f)
 		f.close();
+
+		totalEntriesExtracted += 1
 
 #DEBUG
 #		print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
 #		print(command.string + ' U:' + str(upvotes) + ' D:'+ str(downvotes))
 #		print(example)
 		
-print("Saved " + str(totalEntriesExtracted) + " of " + str(totalEntries) + " bro command entries to " + args.outpath)
+totalEntries = len(commands);
+print("Saved " + str(totalEntriesExtracted) + " of " + str(totalEntries) + " bro command examples to " + args.outpath)
