@@ -25,6 +25,8 @@ args = parser.parse_args()
 if not os.path.exists(args.outpath):
     os.makedirs(args.outpath)
 
+print("Downloading ...");
+
 # Soupify http://bropages.org/browse
 htmldata = requests.get('http://bropages.org/browse')
 soup = BeautifulSoup(htmldata.text)
@@ -32,6 +34,9 @@ soup = BeautifulSoup(htmldata.text)
 # Process each bro command example
 commands = soup.find_all('td', class_='command')
 totalEntriesExtracted = 0;
+
+print("Parsing " + str(len(commands)) + " bro command examples ...");
+
 for command in commands:
 	upvotes = int(command.find_next("span", class_="upvote").get_text())
 	downvotes = int(command.find_next("span", class_="downvote").get_text())
